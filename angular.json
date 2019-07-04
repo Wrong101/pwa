@@ -236,6 +236,43 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/flight-app-server",
+            "main": "projects/flight-app/src/main.server.ts",
+            "tsConfig": "projects/flight-app/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/flight-app/src/environments/environment.ts",
+                  "with": "projects/flight-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
+            }
+          }
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "flight-app:build",
+            "serverTarget": "flight-app:server",
+            "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "flight-app:build:production",
+              "serverTarget": "flight-app:server:production"
+            }
+          }
         }
       }
     },

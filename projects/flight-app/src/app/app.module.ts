@@ -20,7 +20,7 @@ import {MatSnackBarModule} from "@angular/material";
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     FlightBookingModule,
 
@@ -32,6 +32,7 @@ import {MatSnackBarModule} from "@angular/material";
     SharedModule.forRoot(),
     RouterModule.forRoot([...APP_ROUTES], { ...APP_EXTRA_OPTIONS }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    RouterModule,
   ],
   declarations: [
     AppComponent,
