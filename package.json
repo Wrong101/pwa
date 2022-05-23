@@ -47,7 +47,7 @@
     "classlist.js": "^1.1.20150312",
     "copy": "^0.3.2",
     "core-js": "^2.5.4",
-    "dexie": "^2.0.4",
+    "dexie": "^3.2.2",
     "ngx-build-plus": "^8.0.1",
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.1.0",
